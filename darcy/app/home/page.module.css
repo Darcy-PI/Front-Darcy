@@ -1,0 +1,14 @@
+.containDiv{
+    display: flex;
+    flex-direction: row;
+
+    .header{
+        width: 20%;
+
+        display: block;
+    }
+
+    .main{
+        
+    }
+}
