@@ -28,7 +28,7 @@ export default function Home() {
         <main className={styles.main}>
           <section className={styles.logoDarcy}>
             <Image 
-              src="/assets/DarcyLogo.svg"
+              src="/assets/DarcyLogo.png"
               width={300}
               height={300}
               alt="Darcy Logo"

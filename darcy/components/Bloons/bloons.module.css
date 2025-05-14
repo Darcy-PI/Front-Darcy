@@ -1,0 +1,11 @@
+.bloonsSection{
+    background-color: var(--bg-secondaryColor);
+    color: var(--font-secondaryColor);
+    font-weight: 200;
+    font-size: 24px;
+
+    border-radius: 20px;
+
+    padding: 24px;
+    margin-bottom: 24px;
+}
