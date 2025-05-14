@@ -1,14 +1,29 @@
 .containDiv{
+    height: 100vh;
+
     display: flex;
     flex-direction: row;
 
-    .header{
-        width: 20%;
-
-        display: block;
-    }
-
     .main{
-        
+        height: 100%;
+        width: 100%;
+
+        display: flex;
+
+        .wellcomeSection{
+            padding: 24px;
+
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+
+            .userName{
+                font-weight: 400;
+            }
+        }
+        .image{
+            width: 400px;
+            height: 99%;
+        }
     }
 }

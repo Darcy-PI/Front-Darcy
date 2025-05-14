@@ -1,0 +1,13 @@
+.header{
+    background-color: var(--bg-primaryColor);
+
+    height: 100vh;
+    min-width: 250px;
+
+    .userName{
+        color: var(--font-secondaryColor);
+        font-weight: 400;
+
+        padding: 16px 24px;
+    }
+}
