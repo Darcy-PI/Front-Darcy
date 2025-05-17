@@ -1,0 +1,19 @@
+.divHeader{
+    display: flex;
+
+    .divText{
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+
+        h1{
+            font-weight: 400;
+            
+            height: 30px;
+        }
+
+        h2{
+            font-weight: 300;
+        }
+    }
+}

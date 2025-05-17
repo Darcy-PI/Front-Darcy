@@ -17,10 +17,10 @@ export default function Home() {
           </div>
           <nav>
             <button className={styles.buttons}>
-              <Link href={"/register/studant"} className={styles.links}>Aluno</Link>
+              <Link href={"/login/studant"} className={styles.links}>Aluno</Link>
             </button>
             <button className={styles.buttons}>
-              <Link href={"/register/teacher"} className={styles.links}>Professor</Link>
+              <Link href={"/login/teacher"} className={styles.links}>Professor</Link>
             </button>
           </nav>
         </header>
