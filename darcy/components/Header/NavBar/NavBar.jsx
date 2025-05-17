@@ -13,7 +13,7 @@ export default function NavBar(){
             <nav className={styles.navBar}>
                 <ul>
                     <li>
-                        <Link href="/"
+                        <Link href="/home"
                         className={`${styles.link} ${pathname === "/home" ? styles.checkedLink : null}`}>
                         <Image 
                         src="/icon/HomeIcon.svg"
@@ -33,7 +33,7 @@ export default function NavBar(){
                         Perfil</Link>
                     </li>
                     <li>
-                     <Link href="/"
+                     <Link href="/virtualAmbient"
                      className={`${styles.link} ${pathname === "/virtualAmbient" ? styles.checkedLink : null}`}>
                      <Image 
                      src="/icon/VirtualAmbient.svg"
