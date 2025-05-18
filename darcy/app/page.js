@@ -16,12 +16,9 @@ export default function Home() {
               <h1>Darcy</h1>
           </div>
           <nav>
-            <button className={styles.buttons}>
               <Link href={"/login/studant"} className={styles.links}>Aluno</Link>
-            </button>
-            <button className={styles.buttons}>
+
               <Link href={"/login/teacher"} className={styles.links}>Professor</Link>
-            </button>
           </nav>
         </header>
 
