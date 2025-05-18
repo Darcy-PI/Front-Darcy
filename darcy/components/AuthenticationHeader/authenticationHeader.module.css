@@ -9,11 +9,12 @@
         h1{
             font-weight: 400;
             
-            height: 30px;
+            height: 35px;
         }
 
         h2{
-            font-weight: 300;
+            font-size: 18px;
+            font-weight: 400;
         }
     }
 }

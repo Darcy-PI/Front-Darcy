@@ -1,12 +1,15 @@
 "use client"
 
-import { useParams } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import styles from "./page.module.css";
 import Image from "next/image";
 
 import AuthenticationHeader from "@/components/AuthenticationHeader/AuthenticationHeader";
+import Form from "@/components/Form/Form";
 
 export default function Login(){
+    const pathname = usePathname();
+    const firstSegment = pathname.split("/")[1];
     const params = useParams();
     const type = params.type;
 
@@ -17,14 +20,16 @@ export default function Login(){
 
     return(
         <div className={styles.divContain}>
-            <section>
+            <section className={styles.sectionForm}>
                 <AuthenticationHeader />
+                <h1>{firstSegment.charAt(0).toUpperCase() + firstSegment.slice(1)}</h1>
+                <Form />
             </section>
             <Image 
             src={`/assets/${type === "studant" ? "Login-Studant" : "Login-Teacher"}.png`}
             width={500}
             height={1800}
-            alt={`${type === "studant" ? "Studant" : "Teacher"} image`}
+            alt={`${type === "studant" ? "Studant" : "Teacher"} image.`}
             style={imageStyle}
             />
         </div>
