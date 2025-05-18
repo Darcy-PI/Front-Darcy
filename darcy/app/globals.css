@@ -2,12 +2,13 @@
 :root {
   /* Background Colors */
   --background: #F4F4F4;
-  --bg-primaryColor : #381E68 ;
+  --bg-primaryColor: #381E68 ;
   --bg-secondaryColor: #573D7F;
   /* Font Colors */
   --font-primaryColor: #1F2225;
   --font-secondaryColor: #FFFFFF;
   --font-TertiaryColor: #381E68;
+  --bg-fourthColor: #573D7F;
   /* Hover Colors */
   --bg-hover: rgba(225,225,225,0.4);
   /* Checked Colors */
