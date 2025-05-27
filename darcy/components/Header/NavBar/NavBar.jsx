@@ -5,6 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 
 import styles from "./navbar.module.css";
+import { MdOutlineDesktopMac } from "react-icons/md";
+import { IoPersonSharp, IoHome } from "react-icons/io5";
 
 export default function NavBar(){
     const pathname = usePathname();
@@ -15,31 +17,19 @@ export default function NavBar(){
                     <li>
                         <Link href="/home"
                         className={`${styles.link} ${pathname === "/home" ? styles.checkedLink : null}`}>
-                        <Image 
-                        src="/icon/HomeIcon.svg"
-                        width={25}
-                        height={25}
-                        alt="Home Icon"/>
+                        <IoHome size={30}/>
                         Home</Link>
                     </li>
                     <li>
                         <Link href="/"
                         className={`${styles.link} ${pathname === "/profile" ? styles.checkedLink : null}`}> 
-                        <Image 
-                        src="/icon/ProfileIcon.svg"
-                        width={25}
-                        height={25}
-                        alt="Profile Icon"/>
+                       <IoPersonSharp size={30}/>
                         Perfil</Link>
                     </li>
                     <li>
                      <Link href="/virtualAmbient"
                      className={`${styles.link} ${pathname === "/virtualAmbient" ? styles.checkedLink : null}`}>
-                     <Image 
-                     src="/icon/VirtualAmbient.svg"
-                     width={25}
-                     height={25}
-                     alt="VirtualAmbient Icon"/>
+                     <MdOutlineDesktopMac size={30}/>
                      Ambiente Virtual</Link>
                     </li>
                 </ul>

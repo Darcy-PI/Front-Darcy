@@ -2,7 +2,6 @@
 
 import { useParams, usePathname } from "next/navigation";
 import styles from "./page.module.css";
-import Image from "next/image";
 
 import AuthenticationHeader from "@/components/AuthenticationHeader/AuthenticationHeader";
 import Form from "@/components/Form/Form";
@@ -13,7 +12,7 @@ export default function Register(){
     const params = useParams();
     const type = params.type;
 
-    const imageStyle = {
+    const imgStyle = {
         width : "auto",
         height : "100%"
     }
@@ -25,12 +24,12 @@ export default function Register(){
                 <h1>{firstSegment.charAt(0).toUpperCase() + firstSegment.slice(1)}</h1>
                 <Form />
             </section>
-            <Image 
+            <img 
             src={`/assets/${type === "studant" ? "Register-Studant" : "Register-Teacher"}.png`}
             width={500}
             height={1800}
-            alt={`${type === "studant" ? "Studant" : "Teacher"} image.`}
-            style={imageStyle}
+            alt={`${type === "studant" ? "Studant" : "Teacher"} img.`}
+            style={imgStyle}
             />
         </div>
     )
