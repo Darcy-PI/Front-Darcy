@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import styles from "./page.module.css";
 
@@ -7,7 +6,7 @@ export default function Home() {
       <div>
         <header className={styles.header}>
           <div className={styles.logo}>
-            <Image 
+            <img 
               src="/icon/DarcyLogo.svg"
               width={50}
               height={50}
@@ -24,7 +23,7 @@ export default function Home() {
 
         <main className={styles.main}>
           <section className={styles.logoDarcy}>
-            <Image 
+            <img 
               src="/assets/DarcyLogo.png"
               width={300}
               height={300}
@@ -45,7 +44,7 @@ export default function Home() {
 
               <section className={styles.whatChooseDarcySection}>
                 <div className={styles.icons}>
-                  <Image 
+                  <img 
                     src="/icon/Easy-Use.svg"
                     width={50}
                     height={50}
@@ -60,7 +59,7 @@ export default function Home() {
 
               <section className={styles.whatChooseDarcySection}>
                 <div className={styles.icons}>
-                  <Image 
+                  <img 
                     src="/icon/Graphic.svg"
                     width={50}
                     height={50}

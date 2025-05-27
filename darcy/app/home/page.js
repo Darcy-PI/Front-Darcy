@@ -1,5 +1,4 @@
 "use client"
-import Image from "next/image";
 import styles from "./page.module.css";
 
 import Header from "@/components/Header/Header";
@@ -7,7 +6,7 @@ import Bloons from "@/components/Bloons/Bloons";
 
 export default function HomePage(){
     
-    const imageResolution ={
+    const imgResolution ={
         height : '100vh'
     }
 
@@ -27,13 +26,13 @@ export default function HomePage(){
                     </section>
                 </section>
 
-                    <Image 
+                    <img 
                     // src={`${localStorage.getItem('tipo') === "studant" ? "/assets/Home-Studant.svg" : "/assets/Home-Teacher.svg"}`}  
                     src="/assets/Home-Studant.png"
                     width={500} 
                     height={1800} 
-                    style={imageResolution}
-                    alt="Profile Image"/>
+                    style={imgResolution}
+                    alt="Profile img"/>
 
             </main>
         </div>

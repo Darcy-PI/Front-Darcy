@@ -1,4 +1,5 @@
 "use client"
+
 import { usePathname, useParams } from "next/navigation"
 import styles from "./form.module.css";
 import Link from "next/link";
@@ -21,7 +22,7 @@ export default function Form(){
                 <p className={styles.paragraph}>Esqueceu a senha? <Link href="/forgotPassword" className={styles.link}>Clique Aqui!!</Link></p>
             </div>
 
-            <Button type="button">Confimar</Button>
+            <Button type="button" >Confimar</Button>
             <p className={styles.paragraph}>{url === "login" ? "Não tem uma conta? " : "Tem uma conta? "}
             <Link href={`${url === "login" ? "/register" : "/login"}${type === "studant" ? "/studant" : "/teacher"}`} className={styles.link}>Clique aqui!!</Link></p>
         </form>
