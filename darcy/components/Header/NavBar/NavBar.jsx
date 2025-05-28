@@ -1,8 +1,8 @@
 "use client"
 
 import { usePathname } from "next/navigation";
+import { useStorage } from "@/zustand/storage";
 import Link from "next/link";
-import Image from "next/image";
 
 import styles from "./navbar.module.css";
 import { MdOutlineDesktopMac } from "react-icons/md";
@@ -10,6 +10,8 @@ import { IoPersonSharp, IoHome } from "react-icons/io5";
 
 export default function NavBar(){
     const pathname = usePathname();
+    const userTypeStorage = useStorage((state) => state.userType)
+
 
     return(
             <nav className={styles.navBar}>
@@ -27,7 +29,7 @@ export default function NavBar(){
                         Perfil</Link>
                     </li>
                     <li>
-                     <Link href="/virtualAmbient"
+                     <Link href={userTypeStorage === "teacher" ? "virtualAmbientTeacher" : "/virtualAmbientStudant"}
                      className={`${styles.link} ${pathname === "/virtualAmbient" ? styles.checkedLink : null}`}>
                      <MdOutlineDesktopMac size={30}/>
                      Ambiente Virtual</Link>
