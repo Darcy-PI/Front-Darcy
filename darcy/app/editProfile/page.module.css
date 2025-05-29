@@ -1,0 +1,21 @@
+.divContain{
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    .main{  
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .form{
+            .sectionInput{
+                margin-bottom: 24px;
+            }
+        }
+    }
+}
