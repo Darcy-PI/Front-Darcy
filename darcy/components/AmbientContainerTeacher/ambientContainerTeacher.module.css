@@ -1,0 +1,40 @@
+.divContain{
+    background-color: var(--bg-virtualAmbient);
+
+    border-radius: 8px;
+
+    width: 100%;
+
+    padding: 16px;
+    margin-bottom: 16px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .informations{
+        h2{
+            font-weight: 400;
+        }
+    }
+
+    .button{
+        background-color: transparent;
+
+        border: 0;
+
+        margin-right: 6px;
+
+        cursor: pointer;
+        transition: all .3s ease;
+        &:hover{
+            background-color: rgba(160, 160, 160, 0.637);
+            
+            border-radius: 4px;
+            
+            margin-right: 0;
+            padding: 6px;
+        }
+    }
+}

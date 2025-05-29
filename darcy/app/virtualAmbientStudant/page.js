@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import Header from "@/components/Header/Header";
 import Input from "@/components/Input/Input";
 import Button from "@/components/Button/Button";
-import AmbientContainer from "@/components/AmbientContainer/AmbientContainer";
+import AmbientContainerStudant from "@/components/AmbientConteinerStudant/AmbientContainerStudant";
 
 const testsVirtualAmbiet = [
   {
@@ -17,7 +17,7 @@ const testsVirtualAmbiet = [
   name : "teste2"
 }];
 
-export default function HomePage() {
+export default function VirtualAmbientStudant() {
   const [ambients, setAmbients] = useState([]);
 
   useEffect(() =>{
@@ -34,19 +34,21 @@ export default function HomePage() {
       <Header />
 
       <main className={styles.main}>
-        <h1>Ambiente Virtual</h1>
-        <section>
-          <h2>Entrar em um ambiente</h2>
-          <form>
+        <h1 className={styles.title}>Ambiente Virtual</h1>
+        <section className={styles.formSection}>
+          <h2 className={styles.formTitle}>Entrar em um ambiente</h2>
+          <form className={styles.form}>
               <Input label="Chave  de acesso" type="text" id="key"/>
               <Button>Entrar</Button>
           </form>
       </section>
 
-      <section>
+      <section className={styles.sectionVirtualAmbient}>
+          <h1 className={styles.titleAmbient}>Seus ambientes</h1>
+
           {ambients.map((ambientsMapValue, i) => (
             <div key={`ambients${i}`}>
-              <AmbientContainer ambientName={ambientsMapValue.name} id={ambientsMapValue.id}/>
+              <AmbientContainerStudant ambientName={ambientsMapValue.name} id={ambientsMapValue.id}/>
             </div>
 
           ))}
