@@ -1,4 +1,3 @@
-"use client"
 import styles from "./page.module.css";
 
 import Header from "@/components/Header/Header";
@@ -7,6 +6,7 @@ import Bloons from "@/components/Bloons/Bloons";
 export default function HomePage(){
     
     const imgResolution ={
+        width : 'auto',
         height : '100vh'
     }
 

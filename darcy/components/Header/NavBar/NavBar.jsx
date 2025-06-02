@@ -23,14 +23,14 @@ export default function NavBar(){
                         Home</Link>
                     </li>
                     <li>
-                        <Link href="/"
+                        <Link href="/profile"
                         className={`${styles.link} ${pathname === "/profile" ? styles.checkedLink : null}`}> 
                        <IoPersonSharp size={30}/>
                         Perfil</Link>
                     </li>
                     <li>
                      <Link href={userTypeStorage === "teacher" ? "/virtualAmbientStudant" : "/virtualAmbientTeacher"}
-                     className={`${styles.link} ${pathname === "/virtualAmbientStudant" || "/virtualAmbientTeacher" ? styles.checkedLink : null}`}>
+                     className={`${styles.link} ${pathname === "/virtualAmbientStudant" || pathname === "/virtualAmbientTeacher" ? styles.checkedLink : null}`}>
                      <MdOutlineDesktopMac size={30}/>
                      Ambiente Virtual</Link>
                     </li>
