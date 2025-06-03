@@ -2,14 +2,26 @@
 
 import styles from "./page.module.css";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 import Header from "@/components/Header/Header";
 import AmbientContainerTeacher from "@/components/AmbientContainerTeacher/AmbientContainerTeacher";
 
-
 export default function VirtualAmbientTeacher() {
     const testsVirtualAmbient = [
         {
+        id : 1,
+        name : "6° ano Portugues",
+        serie : "6 Ano",
+        materia : "Português",
+        chave : 12343
+        },{
+        id : 1,
+        name : "6° ano Portugues",
+        serie : "6 Ano",
+        materia : "Português",
+        chave : 12343
+        },{
         id : 1,
         name : "6° ano Portugues",
         serie : "6 Ano",
@@ -50,11 +62,12 @@ export default function VirtualAmbientTeacher() {
                     serie={ambientsMapValue.serie} 
                     matter={ambientsMapValue.matter} 
                     keyT={ambientsMapValue.keyT} />
-
                 </div>
-
             ))}
+            <Link href=""></Link>
         </section>
+        <Link href="/createAmbientVirtual" className={styles.linkCreateAmbient}>Criar Ambiente</Link>
+        <br />
       </main>
     </div>
   )

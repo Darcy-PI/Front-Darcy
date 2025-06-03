@@ -4,6 +4,8 @@
     display: flex;
     flex-direction: row;
 
+    overflow: auto;
+
     .main{
         height: 100%;
         width: 100%;
@@ -45,6 +47,25 @@
                 font-weight: 400;
 
                 margin-bottom: 24px;
+            }
+        }
+
+        .linkCreateAmbient{
+            background-color: var(--bg-primaryColor);
+            color: var(--font-secondaryColor);
+            text-decoration: none;
+
+            border-radius: 8px;
+
+            padding: 16px;
+
+            width: 100%;
+
+            text-align: center;
+
+            transition: all .3s ease;
+            &:hover{
+                background-color: var(--bg-fourthColor);
             }
         }
     }

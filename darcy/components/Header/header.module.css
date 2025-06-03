@@ -1,13 +1,14 @@
-.header{
+.header {
     background-color: var(--bg-primaryColor);
-
-    height: 100vh;
     min-width: 250px;
 
-    .userName{
+    position: sticky;
+    top: 0; /* <- Necessário */
+    z-index: 10; /* <- Evita ficar atrás de outros elementos */
+
+    .userName {
         color: var(--font-secondaryColor);
         font-weight: 400;
-
         padding: 16px 24px;
     }
 }
