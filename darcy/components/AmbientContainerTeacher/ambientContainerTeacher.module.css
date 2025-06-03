@@ -6,7 +6,7 @@
     width: 100%;
 
     padding: 16px;
-    margin-bottom: 16px;
+    margin-bottom: 4px;
 
     display: flex;
     flex-direction: row;
@@ -35,6 +35,21 @@
             
             margin-right: 0;
             padding: 6px;
+        }
+    }
+}
+
+.paragraph{
+    color: var(--font-primaryColor);
+
+    margin: 0 0 16px 4px;
+
+    .link{
+        color: var(--font-TertiaryColor);
+
+        transition: all .3s ease;
+        &:hover{
+            color: var(--bg-fourthColor);
         }
     }
 }

@@ -1,0 +1,32 @@
+.divContain{
+    width: 100%;
+}
+.radioDiv{
+    margin-bottom: 12px;
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    .inputDiv{
+        width: 100%;
+
+        display: flex;
+        flex-direction: row;
+    }
+
+    .divResponses{
+        display: flex;
+        align-items: center;
+    }
+
+    .radioInput{
+        width: 18px;
+        height: 18px;
+
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+        user-select: none;
+        margin-right: 8px;
+    }
+}
