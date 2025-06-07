@@ -19,12 +19,11 @@ export default function Form(){
             {url === "login" ? null : <Input label="Email:" type="email" id="email"/>}
             <div>
                 <Input label="Senha:" type="password" id="password"/>
-                <p className={styles.paragraph}>Esqueceu a senha? <Link href="/forgotPassword" className={styles.link}>Clique Aqui!!</Link></p>
             </div>
 
             <Button type="button" >Confimar</Button>
             <p className={styles.paragraph}>{url === "login" ? "Não tem uma conta? " : "Tem uma conta? "}
-            <Link href={`${url === "login" ? "/register" : "/login"}${type === "studant" ? "/studant" : "/teacher"}`} className={styles.link}>Clique aqui!!</Link></p>
+            <Link href={`${url === "login" ? "/register" : "/login"}${type === "student" ? "/student" : "/teacher"}`} className={styles.link}>Clique aqui!!</Link></p>
         </form>
     )
 }

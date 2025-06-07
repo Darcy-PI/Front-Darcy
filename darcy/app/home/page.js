@@ -27,8 +27,8 @@ export default function HomePage(){
                 </section>
 
                     <img 
-                    // src={`${localStorage.getItem('tipo') === "studant" ? "/assets/Home-Studant.svg" : "/assets/Home-Teacher.svg"}`}  
-                    src="/assets/Home-Studant.png"
+                    // src={`${localStorage.getItem('tipo') === "student" ? "/assets/Home-Student.svg" : "/assets/Home-Teacher.svg"}`}  
+                    src="/assets/Home-Student.png"
                     width={500} 
                     height={1800} 
                     style={imgResolution}

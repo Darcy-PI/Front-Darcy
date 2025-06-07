@@ -15,7 +15,7 @@ export default function Home() {
               <h1>Darcy</h1>
           </div>
           <nav>
-              <Link href={"/login/studant"} className={styles.links}>Aluno</Link>
+              <Link href={"/login/student"} className={styles.links}>Aluno</Link>
 
               <Link href={"/login/teacher"} className={styles.links}>Professor</Link>
           </nav>

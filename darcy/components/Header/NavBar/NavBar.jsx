@@ -29,8 +29,8 @@ export default function NavBar(){
                         Perfil</Link>
                     </li>
                     <li>
-                     <Link href={userTypeStorage === "teacher" ? "/virtualAmbientStudant" : "/virtualAmbientTeacher"}
-                     className={`${styles.link} ${pathname === "/virtualAmbientStudant" || pathname === "/virtualAmbientTeacher" ? styles.checkedLink : null}`}>
+                     <Link href={userTypeStorage === "teacher" ? "/virtualAmbientStudent" : "/virtualAmbientTeacher"}
+                     className={`${styles.link} ${pathname === "/virtualAmbientStudent" || pathname === "/virtualAmbientTeacher" ? styles.checkedLink : null}`}>
                      <MdOutlineDesktopMac size={30}/>
                      Ambiente Virtual</Link>
                     </li>

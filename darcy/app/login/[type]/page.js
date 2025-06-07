@@ -25,10 +25,10 @@ export default function Login(){
                 <Form />
             </section>
             <img 
-            src={`/assets/${type === "studant" ? "Login-Studant" : "Login-Teacher"}.png`}
+            src={`/assets/${type === "student" ? "Login-Student" : "Login-Teacher"}.png`}
             width={500}
             height={1800}
-            alt={`${type === "studant" ? "Studant" : "Teacher"}`}
+            alt={`${type === "student" ? "Student" : "Teacher"}`}
             style={imgStyle}
             />
         </div>
