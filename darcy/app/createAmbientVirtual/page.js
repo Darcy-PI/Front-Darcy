@@ -9,32 +9,34 @@ import postVirtualAmbient from "@/service/virtualAmbientTeacher/postVirtualAmbie
 import { useState } from "react";
 
 export default function CreateAmbientVirtual(){
-    const [results, setResults] = useState({
-        name : "",
-        subject : "",
-        serie : "",
-    })
+  // Pegar id atraves do zustand 
+  const teacherId = "6372a016-09f3-40af-ac03-e08ed5d35006";
+  const [results, setResults] = useState({
+      name : "",
+      subject : "",
+      serie : "",
+  })
 
-    const optionsSeries = [
-        '6°A', '6°B', '6°C',
-        '7°A', '7°B', '7°C',
-        '8°A', '8°B', '8°C',
-        '9°A', '9°B', '9°C'
-    ];
+  const optionsSeries = [
+      '6°A', '6°B', '6°C',
+      '7°A', '7°B', '7°C',
+      '8°A', '8°B', '8°C',
+      '9°A', '9°B', '9°C'
+  ];
 
-    function handleResults(e) {
-        const { id, value } = e.target;
-        setResults((prev) => ({
-            ...prev,
-            [id]: value,
-        }));
-    }
+  function handleResults(e) {
+      const { id, value } = e.target;
+      setResults((prev) => ({
+          ...prev,
+          [id]: value,
+      }));
+  }
 
     
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-        await postVirtualAmbient(results.name, results.serie, results.subject);
+        await postVirtualAmbient(results.name, results.serie, results.subject, teacherId);
 
         setResults({
             name : "",
@@ -62,6 +64,7 @@ export default function CreateAmbientVirtual(){
               id="serie"
               value={results.serie}
               onChange={handleResults}
+              required
             >
               <option value="">Selecione uma série</option>
               {optionsSeries.map((option, i) => (

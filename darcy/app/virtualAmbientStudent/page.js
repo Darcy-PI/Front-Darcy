@@ -7,6 +7,7 @@ import Header from "@/components/Header/Header";
 import Input from "@/components/Input/Input";
 import Button from "@/components/Button/Button";
 import AmbientContainerStudent from "@/components/AmbientConteinerStudent/AmbientContainerStudent";
+import getStudentVirtualAmbient from "@/service/virtualAmbientStudent/getStudentVirtualAmbient";
 
 const testsVirtualAmbiet = [
   {
@@ -18,15 +19,28 @@ const testsVirtualAmbiet = [
 }];
 
 export default function VirtualAmbientStudant() {
+  const studentId = "ebb581c1-f36d-46a1-8d28-bf118df35ea9";
+
   const [ambients, setAmbients] = useState([]);
 
-  useEffect(() =>{
-    const mappedAmbients = testsVirtualAmbiet.map(ambient => ({
-    id: ambient.id,
-    name: ambient.name
-    }));
+  async function getFetch(studentId) {
+    const response = await getStudentVirtualAmbient(studentId);
+
+      if (!response || !Array.isArray(response.data)) {
+      console.error("Dados inválidos:", response);
+      return;
+    }
+
+    const mappedAmbients = response.data.map((ambientsData) => ({
+      id : ambientsData.id,
+      name : ambientsData.nomeAmbient
+    }))
 
     setAmbients(mappedAmbients)
+  }
+
+  useEffect(() =>{
+    getFetch()
   }, [])
 
   return (

@@ -11,11 +11,9 @@ import { useStorage } from "@/zustand/storage";
 
 export default function VirtualAmbientTeacher() {
   
-  // const userId = useStorage((state) => state.userId);
-  const userId = "0aaf37e6-b195-4812-a678-da7a9d8665e9";
-    const [ambients, setAmbients] = useState([]);
+  const userId = useStorage((state) => state.userId);
+  const [ambients, setAmbients] = useState([]);
     
-  useEffect(() => {
   async function fetchAmbient() {
     const response = await getVirtualAmbient(userId);
 
@@ -35,8 +33,9 @@ export default function VirtualAmbientTeacher() {
     setAmbients(mappedAmbients);
   }
 
-  fetchAmbient();
-}, []);
+  useEffect(() => {
+    fetchAmbient();
+  }, []);
 
   return (
     <div className={styles.containDiv}>
@@ -54,7 +53,8 @@ export default function VirtualAmbientTeacher() {
                     name={ambientsMapValue.name} 
                     serie={ambientsMapValue.serie} 
                     matter={ambientsMapValue.matter} 
-                    keyT={ambientsMapValue.keyT} />
+                    keyT={ambientsMapValue.keyT}
+                    onDelete={fetchAmbient} />
                 </div>
             )) : <h1>Não existe nenhum ambiente</h1>}
         </section>

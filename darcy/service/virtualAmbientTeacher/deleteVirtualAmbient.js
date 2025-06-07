@@ -1,6 +1,6 @@
 export async function deleteVirtualAmbient(ambientId) {
     try{
-        const response = await fetch(`http://localhost:8080/api/v1/virtualClassrooms/professors/${ambientId}`, {
+        const response = await fetch(`http://localhost:8080/api/v1/virtualClassrooms/${ambientId}`, {
             method : 'DELETE',
         })
 

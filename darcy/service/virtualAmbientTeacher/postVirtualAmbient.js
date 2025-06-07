@@ -1,4 +1,4 @@
-export default async function postVirtualAmbient(name, serie, matter){
+export default async function postVirtualAmbient(name, serie, matter, teacherId){
     try {
         const response = await fetch('http://localhost:8080/api/v1/virtualClassrooms',{
             method : 'POST',
@@ -6,6 +6,7 @@ export default async function postVirtualAmbient(name, serie, matter){
                  'Content-Type': 'application/json'
             },
             body : JSON.stringify({
+                    professorId : teacherId,
                     nomeAmbiente: name,
                     serie : serie,
                     materia : matter
