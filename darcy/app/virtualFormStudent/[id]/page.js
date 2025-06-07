@@ -11,11 +11,11 @@ import Button from "@/components/Button/Button";
 const optionsDifficulty = ['ATENCAO', 'CONTEUDO', 'DIDATICA', 'HORARIO'];
 const optionsReinforcementNeed = ['SIM','NAO','TALVEZ'];
 
-export default function VirtualFormStudant(){
+export default function VirtualFormStudent(){
     const {id} = useParams();
 
     return(<div className={styles.divContain}>
-        <Header2 ambientName={id} url="virtualAmbientStudant"/>
+        <Header2 ambientName={id} url="virtualAmbientStudent"/>
         <main className={styles.main}>
             <form className={styles.form}>
                 <RangeInput id="degreeUnderstanding" label="Indique o seu grau de compreensão da disciplina:" />

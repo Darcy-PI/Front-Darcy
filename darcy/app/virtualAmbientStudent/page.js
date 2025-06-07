@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import Header from "@/components/Header/Header";
 import Input from "@/components/Input/Input";
 import Button from "@/components/Button/Button";
-import AmbientContainerStudant from "@/components/AmbientConteinerStudant/AmbientContainerStudant";
+import AmbientContainerStudent from "@/components/AmbientConteinerStudent/AmbientContainerStudent";
 
 const testsVirtualAmbiet = [
   {
@@ -48,7 +48,7 @@ export default function VirtualAmbientStudant() {
 
           {ambients.map((ambientsMapValue, i) => (
             <div key={`ambients${i}`}>
-              <AmbientContainerStudant ambientName={ambientsMapValue.name} id={ambientsMapValue.id}/>
+              <AmbientContainerStudent ambientName={ambientsMapValue.name} id={ambientsMapValue.id}/>
             </div>
 
           ))}

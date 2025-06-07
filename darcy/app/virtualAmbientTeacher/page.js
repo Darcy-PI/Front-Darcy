@@ -6,43 +6,37 @@ import Link from "next/link";
 
 import Header from "@/components/Header/Header";
 import AmbientContainerTeacher from "@/components/AmbientContainerTeacher/AmbientContainerTeacher";
+import getVirtualAmbient from "@/service/virtualAmbientTeacher/getVirtualAmbient";
+import { useStorage } from "@/zustand/storage";
 
 export default function VirtualAmbientTeacher() {
-    const testsVirtualAmbient = [
-        {
-        id : 1,
-        name : "6° ano Portugues",
-        serie : "6 Ano",
-        materia : "Português",
-        chave : 12343
-        },{
-        id : 1,
-        name : "6° ano Portugues",
-        serie : "6 Ano",
-        materia : "Português",
-        chave : 12343
-        },{
-        id : 1,
-        name : "6° ano Portugues",
-        serie : "6 Ano",
-        materia : "Português",
-        chave : 12343
-        }
-        ];
+  
+  // const userId = useStorage((state) => state.userId);
+  const userId = "0aaf37e6-b195-4812-a678-da7a9d8665e9";
+    const [ambients, setAmbients] = useState([]);
+    
+  useEffect(() => {
+  async function fetchAmbient() {
+    const response = await getVirtualAmbient(userId);
 
-  const [ambients, setAmbients] = useState([]);
+    if (!response || !Array.isArray(response.data)) {
+      console.error("Dados inválidos:", response);
+      return;
+    }
 
-    useEffect(() =>{
-        const mappedAmbients = testsVirtualAmbient.map(ambient => ({
-        id: ambient.id,
-        name: ambient.name,
-        serie : ambient.serie,
-        matter : ambient.materia,
-        keyT : ambient.chave
-        }));
+    const mappedAmbients = response.data.map((ambientData) => ({
+      id: ambientData.id,
+      name: ambientData.nomeAmbiente,
+      serie: ambientData.serie,
+      matter: ambientData.materia,
+      keyT: ambientData.chaveAcesso,
+    }));
 
-        setAmbients(mappedAmbients)
-    }, [])
+    setAmbients(mappedAmbients);
+  }
+
+  fetchAmbient();
+}, []);
 
   return (
     <div className={styles.containDiv}>
@@ -53,8 +47,7 @@ export default function VirtualAmbientTeacher() {
 
         <section className={styles.sectionVirtualAmbient}>
             <h1 className={styles.titleAmbient}>Seus ambientes</h1>
-
-            {ambients.map((ambientsMapValue, i) => (
+            {ambients.length != 0 ? ambients.map((ambientsMapValue, i) => (
                 <div key={`ambients${i}`}>
                     <AmbientContainerTeacher 
                     id={ambientsMapValue.id} 
@@ -63,8 +56,7 @@ export default function VirtualAmbientTeacher() {
                     matter={ambientsMapValue.matter} 
                     keyT={ambientsMapValue.keyT} />
                 </div>
-            ))}
-            <Link href=""></Link>
+            )) : <h1>Não existe nenhum ambiente</h1>}
         </section>
         <Link href="/createAmbientVirtual" className={styles.linkCreateAmbient}>Criar Ambiente</Link>
         <br />

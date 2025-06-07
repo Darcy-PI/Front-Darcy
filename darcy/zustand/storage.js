@@ -5,6 +5,9 @@ export const useStorage = create(
     persist((set) => ({
         userType : null,
         setUserType : (type) => set({ userType: type }),
+
+        userId : null,
+        setUserId : (id) => set({userId : id})
     }),
     {name : "user-type-storage"}
     )

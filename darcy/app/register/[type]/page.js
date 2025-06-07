@@ -25,10 +25,10 @@ export default function Register(){
                 <Form />
             </section>
             <img 
-            src={`/assets/${type === "studant" ? "Register-Studant" : "Register-Teacher"}.png`}
+            src={`/assets/${type === "student" ? "Register-Student" : "Register-Teacher"}.png`}
             width={500}
             height={1800}
-            alt={`${type === "studant" ? "Studant" : "Teacher"} img.`}
+            alt={`${type === "student" ? "Student" : "Teacher"} img.`}
             style={imgStyle}
             />
         </div>

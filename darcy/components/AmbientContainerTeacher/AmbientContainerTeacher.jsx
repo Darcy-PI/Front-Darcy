@@ -2,9 +2,14 @@ import Link from "next/link";
 import styles from "./ambientContainerTeacher.module.css";
 
 import { FaTrashAlt } from "react-icons/fa";
+import { deleteVirtualAmbient } from "@/service/virtualAmbientTeacher/deleteVirtualAmbient";
 
 
 export default function AmbientContainerTeacher({id,name, serie, matter ,keyT}){
+    async function deleteAmbient(){
+        await deleteVirtualAmbient(id);
+    }
+
     return(<div>
                 <div className={styles.divContain}>
                     <div className={styles.informations}>
@@ -14,7 +19,7 @@ export default function AmbientContainerTeacher({id,name, serie, matter ,keyT}){
                         <p>Chave de acesso: {keyT}</p>
                     </div>
 
-                    <button className={styles.button}>
+                    <button className={styles.button} onClick={deleteAmbient}>
                         <FaTrashAlt size={30} color="black"/>
                     </button>
                 </div>

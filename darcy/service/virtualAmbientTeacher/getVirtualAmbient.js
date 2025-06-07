@@ -1,6 +1,6 @@
-export default async function getVirtualAmbient() {
+export default async function getVirtualAmbient(teacherId) {
     try {
-        const response = await fetch(`/api/v1/professors/virtualClasses`, {
+        const response = await fetch(`http://localhost:8080/api/v1/virtualClassrooms/professors/${teacherId}`, {
             method : 'GET',
             headers : {
                 'Content-Type': 'application/json'
@@ -15,5 +15,6 @@ export default async function getVirtualAmbient() {
         return data;
     } catch (error) {
         console.log(`Erro ao acessar o servidor: ${error}`);
+        return [];
     }
 }
