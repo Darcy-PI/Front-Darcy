@@ -5,9 +5,10 @@ import { FaTrashAlt } from "react-icons/fa";
 import { deleteVirtualAmbient } from "@/service/virtualAmbientTeacher/deleteVirtualAmbient";
 
 
-export default function AmbientContainerTeacher({id,name, serie, matter ,keyT}){
+export default function AmbientContainerTeacher({id,name, serie, matter ,keyT, onDelete}){
     async function deleteAmbient(){
         await deleteVirtualAmbient(id);
+        if(onDelete) onDelete();
     }
 
     return(<div>
