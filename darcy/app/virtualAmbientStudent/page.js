@@ -8,22 +8,15 @@ import Input from "@/components/Input/Input";
 import Button from "@/components/Button/Button";
 import AmbientContainerStudent from "@/components/AmbientConteinerStudent/AmbientContainerStudent";
 import getStudentVirtualAmbient from "@/service/virtualAmbientStudent/getStudentVirtualAmbient";
-
-const testsVirtualAmbiet = [
-  {
-  id : 1,
-  name : "teste1"},
-  {
-  id : 2,
-  name : "teste2"
-}];
+import postStudentVirtualAmbient from "@/service/virtualAmbientStudent/postStudentVirtualAmbient";
 
 export default function VirtualAmbientStudant() {
-  const studentId = "ebb581c1-f36d-46a1-8d28-bf118df35ea9";
+  const studentId = "d150053e-0e79-4161-bf61-603482235c5a";
 
+  const [ambientKey, setAmbientKey] = useState("");
   const [ambients, setAmbients] = useState([]);
 
-  async function getFetch(studentId) {
+  async function getFetch() {
     const response = await getStudentVirtualAmbient(studentId);
 
       if (!response || !Array.isArray(response.data)) {
@@ -33,7 +26,7 @@ export default function VirtualAmbientStudant() {
 
     const mappedAmbients = response.data.map((ambientsData) => ({
       id : ambientsData.id,
-      name : ambientsData.nomeAmbient
+      name : ambientsData.nomeAmbiente
     }))
 
     setAmbients(mappedAmbients)
@@ -41,7 +34,19 @@ export default function VirtualAmbientStudant() {
 
   useEffect(() =>{
     getFetch()
+
+    console.log(ambients)
   }, [])
+
+  function handleResults(e) {
+    setAmbientKey(e.target.value);
+  }
+
+  async function submitAmbients(e){
+    e.preventDefault();
+    await postStudentVirtualAmbient(ambientKey, studentId);
+    setAmbientKey("");
+  }
 
   return (
     <div className={styles.containDiv}>
@@ -51,9 +56,9 @@ export default function VirtualAmbientStudant() {
         <h1 className={styles.title}>Ambiente Virtual</h1>
         <section className={styles.formSection}>
           <h2 className={styles.formTitle}>Entrar em um ambiente</h2>
-          <form className={styles.form}>
-              <Input label="Chave  de acesso" type="text" id="key"/>
-              <Button>Entrar</Button>
+          <form className={styles.form} onSubmit={submitAmbients}>
+              <Input label="Chave  de acesso" type="text" id="key" value={ambientKey} onChange={handleResults}/>
+              <Button type="submit">Entrar</Button>
           </form>
       </section>
 

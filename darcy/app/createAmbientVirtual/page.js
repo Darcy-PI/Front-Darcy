@@ -10,7 +10,7 @@ import { useState } from "react";
 
 export default function CreateAmbientVirtual(){
   // Pegar id atraves do zustand 
-  const teacherId = "6372a016-09f3-40af-ac03-e08ed5d35006";
+  const teacherId = "f1057694-70f5-4b75-8c3a-4a85592501e0";
   const [results, setResults] = useState({
       name : "",
       subject : "",
