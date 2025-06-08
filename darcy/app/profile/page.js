@@ -47,10 +47,10 @@ export default function Profile(){
                   />
                   
                   <div className={styles.divData}>
-                    <p>Nome: <span>{profileData[0].name}</span></p>
-                    <p>Nome Completo: <span>{profileData[0].completeName}</span></p>
-                    <p>ID:<span> {profileData[0].id}</span></p>
-                    <p>Série: <span>{profileData[0].serie}</span></p>
+                    <p>Nome: <span>{profileData.name}</span></p>
+                    <p>Nome Completo: <span>{profileData.completeName}</span></p>
+                    <p>ID:<span> {profileData.id}</span></p>
+                    <p>Série: <span>{profileData.serie}</span></p>
                   </div>
                   
                    <Button>Desconectar</Button>
