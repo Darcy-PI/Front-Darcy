@@ -7,28 +7,30 @@ import styles from "./page.module.css";
 import Header from "@/components/Header/Header"
 import { FaRegEdit } from "react-icons/fa";
 import Button from "@/components/Button/Button";
+import getProfile from "@/service/profile/getProfile";
+import { useStorage } from "@/zustand/storage";
 
 export default function Profile(){
-    const [profileData, setProfileData] = useState([{
-    name: "",
-    completeName: "",
-    id: null,
-    serie: ""
-  }]);
-  const testProfile = [{name: "Bastardinho", completeName: "Bastardinho da Silva Junior", id: "000000000000", serie: "6°A"}];
+  const userId = useStorage((state) => state.userId);
+  const userType = useStorage((state) => state.userType);
+
+    const [profileData, setProfileData] = useState([]);
+
+    async function fetchProfile() {
+      const response = await getProfile(userId, userType);
+
+      const userData = response.data.map((data) => ({
+        userName: data.usuario,
+        completeName: data.nomeCompleto,
+        id: data.id,
+      }))
+
+      setProfileData(userData)
+    }
 
   useEffect(() => {
-  const data = testProfile.map((profile) => ({
-    name: profile.name,
-    completeName: profile.completeName,
-    id: profile.id,
-    serie: profile.serie,
-  }));
-
-  // Exemplo: setar no estado
-    setProfileData(data);
-
-    }, []);
+    fetchProfile()
+  }, []);
 
     return(<div className={styles.containDiv}>
             <Header />
