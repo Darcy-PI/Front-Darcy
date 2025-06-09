@@ -1,6 +1,6 @@
 export default async function getStudentVirtualAmbient(studentId){
     try {
-        const response = await fetch(`http//:localhost:8080/api/v1/virtualClassrooms/students/${studentId}`,{
+        const response = await fetch(`http://localhost:8080/api/v1/virtualClassrooms/students/${studentId}`,{
             method : 'GET',
             headers : {
                 'Content-Type': 'application/json'

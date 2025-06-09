@@ -12,7 +12,7 @@ export default function EditProfile(){
                 <form className={styles.form}>
                     <section className={styles.sectionInput}>
                         <Input id="userName" label="Nome:" type="text" />
-                        <Input id="userEmail" label="Email:" type="email" />
+                        <Input id="completeName" label="Nome Completo:" type="text" />
                     </section>
 
                     <Button type="submit">Enviar</Button>

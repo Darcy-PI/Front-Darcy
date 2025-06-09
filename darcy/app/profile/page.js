@@ -14,7 +14,7 @@ export default function Profile(){
   const userId = useStorage((state) => state.userId);
   const userType = useStorage((state) => state.userType);
 
-    const [profileData, setProfileData] = useState({
+   const [profileData, setProfileData] = useState({
       userName : "",
       completeName : "",
       id : null,
@@ -30,7 +30,7 @@ export default function Profile(){
       }
       setProfileData(userData)
     }
-
+  
   useEffect(() => {
     fetchProfile()
   }, []);
@@ -50,6 +50,7 @@ export default function Profile(){
                   />
                   
                   <div className={styles.divData}>
+
                     {profileData.id ? (
                       <>
                         <p>ID:<span> {profileData.id}</span></p>
@@ -59,6 +60,7 @@ export default function Profile(){
                     ) : (
                       <p>Carregando perfil...</p>
                     )}
+
                   </div>
                   
                    <Button>Desconectar</Button>
