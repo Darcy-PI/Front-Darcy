@@ -14,20 +14,23 @@ export default function Profile(){
   const userId = useStorage((state) => state.userId);
   const userType = useStorage((state) => state.userType);
 
-    const [profileData, setProfileData] = useState([]);
+   const [profileData, setProfileData] = useState({
+      userName : "",
+      completeName : "",
+      id : null,
+    });
 
     async function fetchProfile() {
       const response = await getProfile(userId, userType);
-
-      const userData = response.data.map((data) => ({
-        userName: data.usuario,
-        completeName: data.nomeCompleto,
-        id: data.id,
-      }))
-
+      
+      const userData = {
+        userName: response.data.usuario,
+        completeName: response.data.nomeCompleto,
+        id: response.data.id,
+      }
       setProfileData(userData)
     }
-
+  
   useEffect(() => {
     fetchProfile()
   }, []);
@@ -47,10 +50,17 @@ export default function Profile(){
                   />
                   
                   <div className={styles.divData}>
-                    <p>Nome: <span>{profileData.name}</span></p>
-                    <p>Nome Completo: <span>{profileData.completeName}</span></p>
-                    <p>ID:<span> {profileData.id}</span></p>
-                    <p>Série: <span>{profileData.serie}</span></p>
+
+                    {profileData.id ? (
+                      <>
+                        <p>ID:<span> {profileData.id}</span></p>
+                        <p>Nome: <span>{profileData.userName}</span></p>
+                        <p>Nome Completo: <span>{profileData.completeName}</span></p>
+                      </>
+                    ) : (
+                      <p>Carregando perfil...</p>
+                    )}
+
                   </div>
                   
                    <Button>Desconectar</Button>

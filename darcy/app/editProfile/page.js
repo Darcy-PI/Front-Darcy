@@ -7,7 +7,7 @@ import Button from "@/components/Button/Button";
 export default function EditProfile(){
     return(
         <div className={styles.divContain}>
-            <Header2 url="profile" name="Editar Perfil"/>
+            <Header2 url="profile" ambientName="Editar Perfil"/>
             <main className={styles.main}>
                 <form className={styles.form}>
                     <section className={styles.sectionInput}>
