@@ -17,7 +17,7 @@ export default function Home() {
           <nav>
               <Link href={"/login/student"} className={styles.links}>Aluno</Link>
 
-              <Link href={"/login/teacher"} className={styles.links}>Professor</Link>
+              <Link href={"/login/professor"} className={styles.links}>Professor</Link>
           </nav>
         </header>
 
