@@ -5,7 +5,7 @@
     margin-bottom: 12px;
     
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 
     .inputDiv{
         width: 100%;

@@ -9,10 +9,11 @@ import Button from "@/components/Button/Button";
 import AmbientContainerStudent from "@/components/AmbientConteinerStudent/AmbientContainerStudent";
 import getStudentVirtualAmbient from "@/service/virtualAmbientStudent/getStudentVirtualAmbient";
 import postStudentVirtualAmbient from "@/service/virtualAmbientStudent/postStudentVirtualAmbient";
+import { useStorage } from "@/zustand/storage";
 
 export default function VirtualAmbientStudant() {
-  const studentId = "d150053e-0e79-4161-bf61-603482235c5a";
-
+  const studentId =  useStorage((state) => state.userId);
+  
   const [ambientKey, setAmbientKey] = useState("");
   const [ambients, setAmbients] = useState([]);
 
