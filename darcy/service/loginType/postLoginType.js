@@ -1,4 +1,4 @@
-export default async function postStudentLogin(userName,password,type) {
+export default async function postLoginType(userName,password,type) {
   try {
     const response = await fetch(`http://localhost:8080/api/v1/auth/${type}`, {
       method: 'POST',
