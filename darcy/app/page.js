@@ -28,9 +28,9 @@ export default function Home() {
           <MdOutlineMenu className={styles.hambguerMenu} size={35} onClick={displayNavBar}/>
           
           <nav className={display ? styles.active: null}>
-              <Link href={"/login/student"} className={styles.links}>Aluno</Link>
+              <Link href={"/login/students"} className={styles.links}>Aluno</Link>
 
-              <Link href={"/login/professor"} className={styles.links}>Professor</Link>
+              <Link href={"/login/professors"} className={styles.links}>Professor</Link>
           </nav>
         </header>
 
