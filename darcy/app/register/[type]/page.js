@@ -30,6 +30,7 @@ export default function Register(){
             height={1800}
             alt={`${type === "student" ? "Student" : "Teacher"} img.`}
             style={imgStyle}
+            className={styles.image}
             />
         </div>
     )

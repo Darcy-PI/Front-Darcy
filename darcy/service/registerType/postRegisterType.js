@@ -1,4 +1,4 @@
-export default async function postRegisterType(userName,password,fullName, type) {
+export default async function postRegisterType(userName, password, completeName, type) {
   try {
     const response = await fetch(`http://localhost:8080/api/v1/register/${type}`, {
       method: 'POST',
@@ -8,7 +8,7 @@ export default async function postRegisterType(userName,password,fullName, type)
       body: JSON.stringify({
         usuario: userName,
         senha: password,
-        nomeCompleto: fullName,
+        nomeCompleto: completeName,
       })
     });
 
@@ -22,4 +22,3 @@ export default async function postRegisterType(userName,password,fullName, type)
     console.error(`Erro ao registrar ${type}:`, error);
   }
 }
-userName,password,fullName

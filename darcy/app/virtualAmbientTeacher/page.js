@@ -56,7 +56,7 @@ export default function VirtualAmbientTeacher() {
                     keyT={ambientsMapValue.keyT}
                     onDelete={fetchAmbient} />
                 </div>
-            )) : <h1>Não existe nenhum ambiente</h1>}
+            )) : <h1 className={styles.notExist}>Não existe nenhum ambiente</h1>}
         </section>
         <Link href="/createAmbientVirtual" className={styles.linkCreateAmbient}>Criar Ambiente</Link>
         <br />
