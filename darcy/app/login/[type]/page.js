@@ -12,6 +12,7 @@ export default function Login(){
     const params = useParams();
     const type = params.type;
 
+    
     const imgStyle = {
         width : "auto",
         height : "100%"
