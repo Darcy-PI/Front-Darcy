@@ -9,8 +9,7 @@ import Input from "../Input/Input"
 import Button from "../Button/Button"
 
 
-import postStudentLogin from "@/service/loginType/postLoginType";
-import postTeacherLogin from "@/service/loginTeacher/postTeacherLogin";
+import postLoginType from "@/service/loginType/postLoginType";
 import postRegisterType from "@/service/register/postRegisterType";
 
 
@@ -33,9 +32,9 @@ export default function Form() {
             
             if (url === "login") {
                 if (type === "student") {
-                    response = await postStudentLogin(userName, password);
+                    response = await postLoginType(userName, password);
                 } else {
-                    response = await postTeacherLogin(userName, password);
+                    response = await postLoginType(userName, password);
                 }
             } else {
                 const registerType = type === "student" ? "students" : "professors";
