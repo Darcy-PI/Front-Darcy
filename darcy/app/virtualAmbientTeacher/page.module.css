@@ -70,3 +70,17 @@
         }
     }
 }
+
+@media screen and (max-width: 600px){
+    .containDiv{
+        display: flex;
+        flex-direction: column;
+        
+        .main{
+
+            .notExist{
+                font-size: 20px;
+            }
+        }
+    }
+}

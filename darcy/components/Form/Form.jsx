@@ -9,10 +9,8 @@ import Input from "../Input/Input"
 import Button from "../Button/Button"
 
 
-import postStudentLogin from "@/service/loginType/postLoginType";
-import postTeacherLogin from "@/service/loginTeacher/postTeacherLogin";
-import postRegisterType from "@/service/register/postRegisterType";
-
+import postLoginType from "@/service/loginType/postLoginType";
+import postRegisterType from "@/service/registerType/postRegisterType";
 
 export default function Form() {
     const params = useParams();
@@ -20,7 +18,6 @@ export default function Form() {
     const pathname = usePathname();
     const url = pathname.split("/")[1];
 
-    
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [fullName, setFullName] = useState("");
@@ -33,9 +30,9 @@ export default function Form() {
             
             if (url === "login") {
                 if (type === "student") {
-                    response = await postStudentLogin(userName, password);
+                    response = await postLoginType(userName, password);
                 } else {
-                    response = await postTeacherLogin(userName, password);
+                    response = await postLoginType(userName, password);
                 }
             } else {
                 const registerType = type === "student" ? "students" : "professors";

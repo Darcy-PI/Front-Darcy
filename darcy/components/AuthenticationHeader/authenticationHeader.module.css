@@ -1,6 +1,10 @@
 .divHeader{
     display: flex;
 
+    .backLinkButton{
+        display: none;
+    }
+
     .divText{
         display: flex;
         flex-direction: column;
@@ -15,6 +19,35 @@
         h2{
             font-size: 18px;
             font-weight: 400;
+        }
+    }
+}
+
+@media screen and (max-width: 600px){
+    .divHeader{
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+
+        .image{
+            width: 60px;
+            height: auto;
+        }
+    
+        .backLinkButton{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .divText{
+            h1{
+                font-size: 30px;
+            }
+
+            h2{
+                font-size: 15px;
+            }
         }
     }
 }

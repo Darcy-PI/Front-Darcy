@@ -8,13 +8,13 @@ import styles from "./navbar.module.css";
 import { MdOutlineDesktopMac } from "react-icons/md";
 import { IoPersonSharp, IoHome } from "react-icons/io5";
 
-export default function NavBar(){
+export default function NavBar({className}){
     const pathname = usePathname();
     const userTypeStorage = useStorage((state) => state.userType)
 
 
     return(
-            <nav className={styles.navBar}>
+            <nav className={`${styles.navBar} ${className}`}>
                 <ul>
                     <li>
                         <Link href="/home"

@@ -57,21 +57,21 @@ export default function CreateAmbientVirtual(){
                 <h1>Criar Ambiente Virtual</h1>
                 <Input id="name" label="Nome:" type="text" value={results.name} onChange={handleResults}/>
                 <Input id="subject" label="Matéria:" type="text" value={results.subject} onChange={handleResults}/>
-          <label className={styles.labelOptions}>
-            Série:
-            <select
-              className={styles.select}
-              id="serie"
-              value={results.serie}
-              onChange={handleResults}
-              required
-            >
-              <option value="">Selecione uma série</option>
-              {optionsSeries.map((option, i) => (
-                <option value={option} key={`options${i}`}>
-                  {option}
-                </option>
-              ))}
+                <label className={styles.labelOptions}>
+                  Série:
+                  <select
+                    className={styles.select}
+                    id="serie"
+                    value={results.serie}
+                    onChange={handleResults}
+                    required
+                  >
+                  <option value="">Selecione uma série</option>
+                  {optionsSeries.map((option, i) => (
+                    <option value={option} key={`options${i}`}>
+                      {option}
+                    </option>
+                  ))}
             </select>
           </label>
                 <Button type="submit">Criar</Button>

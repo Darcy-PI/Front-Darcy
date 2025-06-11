@@ -15,25 +15,22 @@ export default function HomePage(){
             <Header />
             <main className={styles.main}>
                 <section className={styles.wellcomeSection}>
-                    {/*  
-                    <h1 className={styles.userName}>  Bem vindo(a) {localStorage.getItem("tipo") === "Teacher" ? "Professor" : ""} {localStorage.getItem("Nome")}</h1>
-                    */}
                     <h1 className={styles.userName}>Bem vinda(o) Maria!!</h1>
 
                     <section>
                         <Bloons />
                         <Bloons />
                     </section>
-                </section>
 
+                </section>
                     <img 
                     // src={`${localStorage.getItem('tipo') === "student" ? "/assets/Home-Student.svg" : "/assets/Home-Teacher.svg"}`}  
                     src="/assets/Home-Student.png"
                     width={500} 
                     height={1800} 
                     style={imgResolution}
-                    alt="Profile img"/>
-
+                    alt="Profile img"
+                    className={styles.image}/>
             </main>
         </div>
     )
