@@ -19,7 +19,6 @@ export default function Form() {
     const pathname = usePathname();
     const url = pathname.split("/")[1];
 
-    
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [fullName, setFullName] = useState("");
