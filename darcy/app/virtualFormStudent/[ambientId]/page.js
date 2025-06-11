@@ -8,7 +8,7 @@ import Header2 from "@/components/Header2/Header2";
 import { RadioInput, RangeInput } from "@/components/AmbientsInputs/page"; 
 import Button from "@/components/Button/Button";
 import { useEffect, useState } from "react";
-import postStudentVirtualAmbientForm from "@/service/virtualAmbientStudent/postStudentVirtualAmbientForm";
+import postStudentData from "@/service/studentData/postStudentData";
 import { useStorage } from "@/zustand/storage";
 import getVirtualAmbientById from "@/service/virtualAmbient/getVirtualAmbientById";
 
@@ -52,7 +52,7 @@ export default function VirtualFormStudent(){
 
     async function handleSubmit(e) {
         e.preventDefault();
-        await postStudentVirtualAmbientForm(userId, ambientId, userResponse);
+        await postStudentData(userId, ambientId, userResponse);
 
     }
 

@@ -1,4 +1,4 @@
-export default async function postStudentVirtualAmbientForm(studentId, ambientId, data) {
+export default async function postStudentData(studentId, ambientId, data) {
     console.log(studentId + "," + ambientId)
 
     try{

@@ -7,7 +7,12 @@ export const useStorage = create(
         setUserType : (type) => set({ userType: type }),
 
         userId : null,
-        setUserId : (id) => set({userId : id})
+        setUserId : (id) => set({userId : id}),
+
+        ambientsId: [],
+        setAmbientsId: (id) => set((state) => ({
+            ambientsId: [...state.ambientsId, id]
+        }))
     }),
     {name : "user-type-storage"}
     )
