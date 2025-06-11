@@ -10,8 +10,7 @@ import Button from "../Button/Button"
 
 
 import postLoginType from "@/service/loginType/postLoginType";
-import postRegisterType from "@/service/register/postRegisterType";
-
+import postRegisterType from "@/service/registerType/postRegisterType";
 
 export default function Form() {
     const params = useParams();
