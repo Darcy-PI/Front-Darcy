@@ -20,8 +20,8 @@ export default function Login(){
     return(
         <div className={styles.divContain}>
             <section className={styles.sectionForm}>
-                <AuthenticationHeader />
-                <h1>{firstSegment.charAt(0).toUpperCase() + firstSegment.slice(1)}</h1>
+                <AuthenticationHeader/>
+                <h1 className={styles.header}>{firstSegment.charAt(0).toUpperCase() + firstSegment.slice(1)}</h1>
                 <Form />
             </section>
             <img 
@@ -30,6 +30,7 @@ export default function Login(){
             height={1800}
             alt={`${type === "student" ? "Student" : "Teacher"}`}
             style={imgStyle}
+            className={styles.image}
             />
         </div>
     )

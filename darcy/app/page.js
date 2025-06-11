@@ -1,7 +1,17 @@
+"use client"
 import Link from "next/link";
 import styles from "./page.module.css";
 
+import { MdOutlineMenu } from "react-icons/md";
+import { useState } from "react";
+
 export default function Home() {
+  const [display, setDisplay] = useState(false)
+
+  function displayNavBar(){
+    display ? setDisplay(false) : setDisplay(true);
+  }
+
   return (
       <div>
         <header className={styles.header}>
@@ -14,7 +24,10 @@ export default function Home() {
               />
               <h1>Darcy</h1>
           </div>
-          <nav>
+          
+          <MdOutlineMenu className={styles.hambguerMenu} size={35} onClick={displayNavBar}/>
+          
+          <nav className={display ? styles.active: null}>
               <Link href={"/login/student"} className={styles.links}>Aluno</Link>
 
               <Link href={"/login/professor"} className={styles.links}>Professor</Link>
@@ -28,6 +41,7 @@ export default function Home() {
               width={300}
               height={300}
               alt="Darcy Logo"
+              className={styles.darcyImage}
             />
             <h1>Darcy</h1>
             <h2>Educação Digitalizada</h2>

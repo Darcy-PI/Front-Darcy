@@ -17,6 +17,18 @@
             font-weight: 400;
         }
     }
-    
+}
 
+@media screen and (max-width: 600px){
+    .divContain{
+        .image{
+            display: none;
+        }
+
+        .sectionForm{
+            .header{
+                font-size: 30px;
+            }
+        }
+    }
 }
