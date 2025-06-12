@@ -30,9 +30,9 @@ export default function Form() {
             
             if (url === "login") {
                 if (type === "student") {
-                    response = await postLoginType(userName, password);
+                    response = await postLoginType(userName, password, 'student');
                 } else {
-                    response = await postLoginType(userName, password);
+                    response = await postLoginType(userName, password, 'professor');
                 }
             } else {
                 const registerType = type === "student" ? "students" : "professors";

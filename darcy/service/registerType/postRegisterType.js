@@ -2,7 +2,8 @@ import { useStorage } from "@/zustand/storage";
 
 export default async function postRegisterType(userName, password, completeName, type) {
   try {
-    const response = await fetch(`http://localhost:8080/api/v1/register/${type === "students" ? "student" : "professors"}`, {
+    const baseUrl = 'http://localhost:8081'
+    const response = await fetch(`${baseUrl}/api/v1/${type === "students" ? "students" : "professors"}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
