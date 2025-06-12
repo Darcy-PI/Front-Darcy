@@ -17,11 +17,6 @@ export default function VirtualAmbientTeacher() {
   async function fetchAmbient() {
     const response = await getVirtualAmbient(userId);
 
-    if (!response || !Array.isArray(response.data)) {
-      console.error("Dados inválidos:", response);
-      return;
-    }
-
     const mappedAmbients = response.data.map((ambientData) => ({
       id: ambientData.id,
       name: ambientData.nomeAmbiente,
@@ -35,7 +30,7 @@ export default function VirtualAmbientTeacher() {
 
   useEffect(() => {
     fetchAmbient();
-  }, [hydrated, hydrated]);
+  }, [hydrated, userId]);
 
   return (
     <div className={styles.containDiv}>

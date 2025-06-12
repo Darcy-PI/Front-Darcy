@@ -47,7 +47,8 @@ useEffect(() => {
 
   async function submitAmbients(e){
     e.preventDefault();
-    await postStudentVirtualAmbient(ambientKey, studentId);
+    await postStudentVirtualAmbient(ambientKey, userIdStorage);
+    getFetch()
     setAmbientKey("");
   }
 

@@ -9,16 +9,27 @@ import { FaRegEdit } from "react-icons/fa";
 import Button from "@/components/Button/Button";
 import getProfile from "@/service/profile/getProfile";
 import { useStorage } from "@/zustand/storage";
+import { useRouter } from "next/navigation";
 
 export default function Profile(){
+  const setUserId = useStorage((state) => state.setUserId);
+  const setUserType = useStorage((state) => state.setUserType);
   const userId = useStorage((state) => state.userId);
   const userType = useStorage((state) => state.userType);
+
+  const router = useRouter();
 
    const [profileData, setProfileData] = useState({
       userName : "",
       completeName : "",
       id : null,
     });
+
+    function disconect(){
+      setUserId("");
+      setUserType("")
+      router.push("/")
+    }
 
     async function fetchProfile() {
       const response = await getProfile(userId, userType);
@@ -63,7 +74,7 @@ export default function Profile(){
 
                   </div>
                   
-                   <Button>Desconectar</Button>
+                   <Button onClick={disconect}>Desconectar</Button>
                    </div>
 
                    <div className={styles.editIcon}>

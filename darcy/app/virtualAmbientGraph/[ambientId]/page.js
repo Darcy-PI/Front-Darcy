@@ -1,4 +1,5 @@
-'use client';
+"use client";
+
 import Header2 from "@/components/Header2/Header2";
 
 import getAllStudentdataById from "@/service/studentData/getAllStudentDataByVirtualAmbientId";

@@ -30,7 +30,7 @@ export default function AmbientContainerTeacher({id,name, serie, matter ,keyT, o
                     </div>
 
                 </div>
-                <p className={styles.paragraph}>Para acessar mais infomações <Link href={`/virtualGraphicTeacher/${id}`} className={styles.link}>Clique aqui!!</Link>
+                <p className={styles.paragraph}>Para acessar mais infomações <Link href={`/virtualAmbientGraph/${id}`} className={styles.link}>Clique aqui!!</Link>
                 </p>
         </div>)
 }

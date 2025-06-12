@@ -9,10 +9,11 @@ import getProfile from "@/service/profile/getProfile";
 import { useEffect, useState } from "react";
 
 export default function HomePage(){
+    const hydrated = useStorage((state) => state.hydrated);
     const userId = useStorage((state) => state.userId);
     const userType = useStorage((state) => state.userType);
 
-    const [userData, setUserData] = useState("");
+    const [userData, setUserData] = useState(null);
     
     const imgResolution ={
         width : 'auto',
@@ -21,9 +22,9 @@ export default function HomePage(){
 
     async function fetchUser() {
         try {
-            const response = await getProfile(userType, userId);  
-            
-            setUserData(response.data.usuario);
+            const response = await getProfile(userId, userType);
+            const data = response.data.usuario 
+            setUserData(data);
 
         } catch (error) {
             
@@ -31,8 +32,10 @@ export default function HomePage(){
     }
 
     useEffect(() => {
-        fetchUser();
-    }, [])
+        if (hydrated && userId && userType) {
+            fetchUser();
+        }
+    }, [hydrated, userId, userType]);
 
     return(
         <div className={styles.containDiv}>
