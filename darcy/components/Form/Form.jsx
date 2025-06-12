@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react";
-import { usePathname, useParams } from "next/navigation"
+import { usePathname, useParams, useRouter } from "next/navigation"
 import styles from "./form.module.css";
 import Link from "next/link";
 
@@ -11,6 +11,7 @@ import Button from "../Button/Button"
 
 import postLoginType from "@/service/loginType/postLoginType";
 import postRegisterType from "@/service/registerType/postRegisterType";
+import { useStorage } from "@/zustand/storage";
 
 export default function Form() {
     const params = useParams();
@@ -22,26 +23,45 @@ export default function Form() {
     const [password, setPassword] = useState("");
     const [fullName, setFullName] = useState("");
  
+    const setUserId = useStorage((state) => state.setUserId);
+    const setUserType = useStorage((state) => state.setUserType);
+
+    const router = useRouter();
    
      async function handleLogin(e) {
         e.preventDefault(); 
-        try{
+        try {
             let response;
-            
             if (url === "login") {
-                if (type === "student") {
-                    response = await postLoginType(userName, password);
+                response = await postLoginType(userName, password);
+
+                if (response?.data?.id) {
+                    console.log("Login realizado:", response);
+                    setUserId(response.data.id);
+                    setUserType(type);
+                    router.push(`/home/${type}`);
                 } else {
-                    response = await postLoginType(userName, password);
+                    alert("Erro no login. Dados inválidos.");
                 }
-            } else {
+
+            } else if (url === "register") {
                 const registerType = type === "student" ? "students" : "professors";
+                console.log(registerType)
                 response = await postRegisterType(userName, password, fullName, registerType);
+                console.log("Registro realizado:", response);
+
+                if (response?.data?.id) {
+                    setUserId(response.data.id);
+                    setUserType(type);
+                    router.push(`/login/${type}`);
+                } else {
+                    alert("Erro no registro. Verifique os dados.");
+                }
             }
-        } catch (error) {  
-            console.error("Erro ao tentar fazer login:", error);
-            alert("Falha no login. Tente novamente.");
-            
+
+        } catch (error) {
+            console.error("Erro ao tentar fazer login ou registro:", error);
+            alert("Falha na operação. Tente novamente.");
         }
     }
 
@@ -56,7 +76,7 @@ export default function Form() {
 
             <Button type="submit" >Confirmar</Button>
             <p className={styles.paragraph}>{url === "login" ? "Não tem uma conta? " : "Tem uma conta? "}
-            <Link href={`${url === "login" ? "/register" : "/login"}${type === "student" ? "/student" : "/teacher"}`} className={styles.link}>Clique aqui!!</Link></p>
+            <Link href={`${url === "login" ? "/register" : "/login"}${type === "student" ? "/student" : "/professor"}`} className={styles.link}>Clique aqui!!</Link></p>
         </form>
     )
 }

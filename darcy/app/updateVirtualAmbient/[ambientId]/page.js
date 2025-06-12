@@ -5,10 +5,13 @@ import styles from "./page.module.css";
 import Button from "@/components/Button/Button";
 import Header2 from "@/components/Header2/Header2";
 import Input from "@/components/Input/Input";
-import postVirtualAmbient from "@/service/virtualAmbientTeacher/postVirtualAmbient";
+import getByIdVirtualAmbient from "@/service/virtualAmbientTeacher/getByIdVirtualAmbient";
+import updateVirtualAmbient from "@/service/virtualAmbientTeacher/updateVirtualAmbient";
+import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 
 export default function UpdateVirtualAmbient(){
+  const {ambientId} = useParams();
   const [results, setResults] = useState({
       name : "",
       subject : "",
@@ -23,20 +26,18 @@ export default function UpdateVirtualAmbient(){
   ];
 
   async function fetchAmbient() {
-    // const response = await getVirtualAmbient(userId);
-
-    // if (!response || !Array.isArray(response.data)) {
-    //   console.error("Dados inválidos:", response);
-    //   return;
-    // }
-
-    const mappedAmbients = {
-      name: "teste",
-      serie: "6°A",
-      subject: "TesteAA",
-    };
-
-    setResults(mappedAmbients);
+    const response = await getByIdVirtualAmbient(ambientId);
+    
+    console.log(response)
+        if (!response || !response.data) {
+      console.error("Erro: resposta inválida", response);
+      return;
+    }
+    setResults({
+      name: response.data.nomeAmbiente,
+      serie: response.data.serie,
+      subject: response.data.materia,
+    });
   }
 
   function handleResults(e) {
@@ -50,7 +51,7 @@ export default function UpdateVirtualAmbient(){
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-        await postVirtualAmbient(results.name, results.serie, results.subject, teacherId);
+        await updateVirtualAmbient(ambientId, results.name, results.serie, results.subject);
 
         setResults({
             name : "",
@@ -66,7 +67,8 @@ export default function UpdateVirtualAmbient(){
 
   useEffect(() => {
     fetchAmbient();
-  }, []);
+  }, [ambientId]);
+
     return(<div>
         <Header2 url="virtualAmbientTeacher" ambientName="Atualizar ambient"/>
         <main className={styles.main}>

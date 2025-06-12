@@ -23,7 +23,7 @@ export default async function postLoginType(userName,password,type) {
     const setUserType = useStorage((state) => state.setUserType);
 
     setUserId(data.data.id);
-    setUserType(type);
+    setUserType(`${type}s`);
     
     return data; 
 

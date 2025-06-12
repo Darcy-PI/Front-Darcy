@@ -12,10 +12,8 @@ import { useStorage } from "@/zustand/storage";
 import updateProfile from "@/service/profile/updateProfile";
 
 export default function EditProfile(){
-    const userId = "2a370a38-4126-4728-9ab9-d606cfcd2e21"; 
-    // useStorage((state) => state.userId);
-    const userType = "professors"; 
-    // useStorage((state) => state.userType);
+    const userId = useStorage((state) => state.userId);
+    const userType = useStorage((state) => state.userType);
 
     const [profileData, setProfileData] = useState({
         userName : "",

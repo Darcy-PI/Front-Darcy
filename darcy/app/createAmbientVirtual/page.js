@@ -6,11 +6,13 @@ import Button from "@/components/Button/Button";
 import Header2 from "@/components/Header2/Header2";
 import Input from "@/components/Input/Input";
 import postVirtualAmbient from "@/service/virtualAmbientTeacher/postVirtualAmbient";
+import { useStorage } from "@/zustand/storage";
 import { useState } from "react";
 
 export default function CreateAmbientVirtual(){
-  // Pegar id atraves do zustand 
-  const teacherId = "f1057694-70f5-4b75-8c3a-4a85592501e0";
+
+  const teacherId = useStorage((state) => state.userId);
+  
   const [results, setResults] = useState({
       name : "",
       subject : "",
