@@ -17,6 +17,7 @@ const optionsReinforcementNeed = ['SIM','NAO','TALVEZ'];
 const optionsTimeDedicatedStudy = [1, 2, 3, 4, 5];
 
 export default function VirtualFormStudent(){
+    const hydrated = useStorage((state) => state.hydrated);
     const userId = useStorage((state) => state.userId);
     const {ambientId} = useParams();
 
@@ -40,7 +41,7 @@ export default function VirtualFormStudent(){
 
     useEffect(() => {
         getAmbientData();
-    }, []);
+    }, [[hydrated, userId]]);
 
     function getStudentResponse(e){
       const {id, value} = e.target;
@@ -59,7 +60,7 @@ export default function VirtualFormStudent(){
     return(<div className={styles.divContain}>
         <Header2 ambientName={ambientData.length == 0 ? "Carregando..." : ambientData} url="virtualAmbientStudent"/>
         <main className={styles.main}>
-            <form className={styles.form} onSubmit={handleSubmit}>
+            <form className={styles.virtualFormStudent} onSubmit={handleSubmit}>
                 <RangeInput id="degreeUnderstanding" label="Indique o seu grau de compreensão da disciplina:" onChange={getStudentResponse}/>
                 <RangeInput id="degreeInterest" label="Indique o seu grau de interesse da disciplina:" onChange={getStudentResponse}/>
                 <RangeInput id="levelDifficulty" label="Indique o seu grau de confiança sobre a disciplina:" onChange={getStudentResponse}/>

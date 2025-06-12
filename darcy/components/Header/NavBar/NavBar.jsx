@@ -8,13 +8,13 @@ import styles from "./navbar.module.css";
 import { MdOutlineDesktopMac } from "react-icons/md";
 import { IoPersonSharp, IoHome } from "react-icons/io5";
 
-export default function NavBar(){
+export default function NavBar({className}){
     const pathname = usePathname();
     const userTypeStorage = useStorage((state) => state.userType)
 
 
     return(
-            <nav className={styles.navBar}>
+            <nav className={`${styles.navBar} ${className}`}>
                 <ul>
                     <li>
                         <Link href="/home"
@@ -29,7 +29,7 @@ export default function NavBar(){
                         Perfil</Link>
                     </li>
                     <li>
-                     <Link href={userTypeStorage === "teacher" ? "/virtualAmbientStudent" : "/virtualAmbientTeacher"}
+                     <Link href={userTypeStorage === "students" ? "/virtualAmbientStudent" : "/virtualAmbientTeacher"}
                      className={`${styles.link} ${pathname === "/virtualAmbientStudent" || pathname === "/virtualAmbientTeacher" ? styles.checkedLink : null}`}>
                      <MdOutlineDesktopMac size={30}/>
                      Ambiente Virtual</Link>

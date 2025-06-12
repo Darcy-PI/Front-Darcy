@@ -39,7 +39,7 @@ export default function Profile(){
             <Header />
             <main className={styles.main}>
                 <h1 className={styles.title}>Perfil</h1>
-                <div className={styles.Profile}>
+                <div className={styles.profile}>
                   <div></div>
                 
                 <div className={styles.profileBox}>
