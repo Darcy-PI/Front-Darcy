@@ -1,4 +1,4 @@
-export default async function getAllStudentdataById(ambientId){
+export default async function getAllStudentsOnVirtualClassroom(ambientId){
     try{
         const baseUrl = 'http://localhost:8081'
         const response = await fetch(`${baseUrl}/api/v1/studentData/virtualClassroom/${ambientId}`);
