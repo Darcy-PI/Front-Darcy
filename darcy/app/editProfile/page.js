@@ -48,6 +48,7 @@ export default function EditProfile(){
         e.preventDefault();
         await updateProfile(profileData.id, userType, profileData.userName, profileData.completeName);
         console.log(profileData)
+        alert("Usuário atualizado")
     }
 
     return(

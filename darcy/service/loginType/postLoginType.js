@@ -20,12 +20,6 @@ export default async function postLoginType(userName,password,type) {
     const data = await response.json();
     console.log(`Login do ${type} bem-sucedido:"`, data);
 
-    const setUserId = useStorage((state) => state.setUserId);
-    const setUserType = useStorage((state) => state.setUserType);
-
-    setUserId(data.data.id);
-    setUserType(`${type}s`);
-    
     return data; 
 
   } catch (error) {

@@ -32,20 +32,21 @@ export default function Form() {
             let response;
 
             if (url === "login") {
+                const typeEndPoint = type === "student" ? "students" : "professors";
                 response = await postLoginType(userName, password, type);
-                if (response?.data?.id) {
-                    setUserId(response.data.id);
-                    setUserType(type);
-                    router.push(`/home/${type}`);
+                if (response.id) {
+                    setUserId(response.id);
+                    setUserType(typeEndPoint);
+                    router.push(`/home`);
                 } else {
                     alert("Erro no login. Verifique seus dados.");
                 }
             } else {
                 const registerType = type === "student" ? "students" : "professors";
                 response = await postRegisterType(userName, password, fullName, registerType);
-                if (response?.id) {
-                    setUserId(response.id);
-                    setUserType(type);
+                if (response.data.id) {
+                    setUserId(response.data.id);
+                    setUserType(registerType);
                     router.push(`/login/${type}`);
                 } else {
                     alert("Erro no registro. Verifique os dados.");

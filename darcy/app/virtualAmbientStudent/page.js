@@ -12,14 +12,14 @@ import postStudentVirtualAmbient from "@/service/virtualAmbientStudent/postStude
 import { useStorage } from "@/zustand/storage";
 
 export default function VirtualAmbientStudant() {
-  const studentId =  useStorage((state) => state.userId);
+  const hydrated = useStorage((state) => state.hydrated);
+  const userIdStorage = useStorage((state) => state.userId)
   
   const [ambientKey, setAmbientKey] = useState("");
   const [ambients, setAmbients] = useState([]);
 
   async function getFetch() {
-    const response = await getStudentVirtualAmbient(studentId);
-
+    const response = await getStudentVirtualAmbient(userIdStorage);
       if (!response || !Array.isArray(response.data)) {
       console.error("Dados inválidos:", response);
       return;
@@ -33,11 +33,13 @@ export default function VirtualAmbientStudant() {
     setAmbients(mappedAmbients)
   }
 
-  useEffect(() =>{
-    getFetch()
-
-    console.log(ambients)
-  }, [])
+useEffect(() => {
+  if (hydrated && userIdStorage) {
+    console.log(hydrated)
+    console.log(userIdStorage)
+    getFetch();
+  }
+}, [hydrated, userIdStorage]);
 
   function handleResults(e) {
     setAmbientKey(e.target.value);

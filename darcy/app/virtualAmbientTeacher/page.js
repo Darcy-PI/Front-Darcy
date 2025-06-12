@@ -10,7 +10,7 @@ import getVirtualAmbient from "@/service/virtualAmbientTeacher/getVirtualAmbient
 import { useStorage } from "@/zustand/storage";
 
 export default function VirtualAmbientTeacher() {
-  
+  const hydrated = useStorage((state) => state.hydrated);
   const userId = useStorage((state) => state.userId);
   const [ambients, setAmbients] = useState([]);
     
@@ -35,7 +35,7 @@ export default function VirtualAmbientTeacher() {
 
   useEffect(() => {
     fetchAmbient();
-  }, []);
+  }, [hydrated, hydrated]);
 
   return (
     <div className={styles.containDiv}>
