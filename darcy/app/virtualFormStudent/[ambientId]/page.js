@@ -17,6 +17,7 @@ const optionsReinforcementNeed = ['SIM','NAO','TALVEZ'];
 const optionsTimeDedicatedStudy = [1, 2, 3, 4, 5];
 
 export default function VirtualFormStudent(){
+    const hydrated = useStorage((state) => state.hydrated);
     const userId = useStorage((state) => state.userId);
     const {ambientId} = useParams();
 
@@ -40,7 +41,7 @@ export default function VirtualFormStudent(){
 
     useEffect(() => {
         getAmbientData();
-    }, []);
+    }, [[hydrated, userId]]);
 
     function getStudentResponse(e){
       const {id, value} = e.target;

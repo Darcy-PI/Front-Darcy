@@ -1,6 +1,6 @@
 export default async function postRegisterType(userName, password, completeName, type) {
   try {
-    const response = await fetch(`http://localhost:8080/api/v1/register/${type}`, {
+    const response = await fetch(`http://localhost:8080/api/v1/${type}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -16,6 +16,7 @@ export default async function postRegisterType(userName, password, completeName,
 
     const data = await response.json();
     console.log(`Registro de ${type} bem-sucedido:`, data);
+    
     return data;
 
   } catch (error) {

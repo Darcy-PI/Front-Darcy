@@ -5,14 +5,13 @@ import styles from "./page.module.css";
 import Button from "@/components/Button/Button";
 import Header2 from "@/components/Header2/Header2";
 import Input from "@/components/Input/Input";
-import postVirtualAmbient from "@/service/virtualAmbientTeacher/postVirtualAmbient";
-import { useStorage } from "@/zustand/storage";
-import { useState } from "react";
+import getByIdVirtualAmbient from "@/service/virtualAmbientTeacher/getByIdVirtualAmbient";
+import updateVirtualAmbient from "@/service/virtualAmbientTeacher/updateVirtualAmbient";
+import { useParams } from "next/navigation";
+import { useState, useEffect } from "react";
 
-export default function CreateAmbientVirtual(){
-
-  const teacherId = useStorage((state) => state.userId);
-  
+export default function UpdateVirtualAmbient(){
+  const {ambientId} = useParams();
   const [results, setResults] = useState({
       name : "",
       subject : "",
@@ -26,6 +25,21 @@ export default function CreateAmbientVirtual(){
       '9°A', '9°B', '9°C'
   ];
 
+  async function fetchAmbient() {
+    const response = await getByIdVirtualAmbient(ambientId);
+    
+    console.log(response)
+        if (!response || !response.data) {
+      console.error("Erro: resposta inválida", response);
+      return;
+    }
+    setResults({
+      name: response.data.nomeAmbiente,
+      serie: response.data.serie,
+      subject: response.data.materia,
+    });
+  }
+
   function handleResults(e) {
       const { id, value } = e.target;
       setResults((prev) => ({
@@ -33,12 +47,11 @@ export default function CreateAmbientVirtual(){
           [id]: value,
       }));
   }
-
     
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-        await postVirtualAmbient(results.name, results.serie, results.subject, teacherId);
+        await updateVirtualAmbient(ambientId, results.name, results.serie, results.subject);
 
         setResults({
             name : "",
@@ -52,8 +65,12 @@ export default function CreateAmbientVirtual(){
 
   }
 
+  useEffect(() => {
+    fetchAmbient();
+  }, [ambientId]);
+
     return(<div>
-        <Header2 url="virtualAmbientTeacher" ambientName="Criar um ambiente"/>
+        <Header2 url="virtualAmbientTeacher" ambientName="Atualizar ambient"/>
         <main className={styles.main}>
             <form className={styles.form} onSubmit={handleSubmit}>
                 <h1>Criar Ambiente Virtual</h1>
@@ -76,7 +93,7 @@ export default function CreateAmbientVirtual(){
                   ))}
             </select>
           </label>
-                <Button type="submit">Criar</Button>
+                <Button type="submit">Atualizar</Button>
             </form>
         </main>
     </div>)

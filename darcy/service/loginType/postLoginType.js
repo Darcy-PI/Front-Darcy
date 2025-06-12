@@ -1,6 +1,9 @@
+import { useStorage } from "@/zustand/storage";
+
 export default async function postLoginType(userName,password,type) {
   try {
-    const response = await fetch(`http://localhost:8080/api/v1/auth/${type}`, {
+    const baseUrl = 'http://localhost:8080'
+    const response = await fetch(`${baseUrl}/api/v1/auth/${type}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -16,6 +19,7 @@ export default async function postLoginType(userName,password,type) {
 
     const data = await response.json();
     console.log(`Login do ${type} bem-sucedido:"`, data);
+
     return data; 
 
   } catch (error) {
