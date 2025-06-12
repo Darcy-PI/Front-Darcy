@@ -20,7 +20,8 @@ export default function VirtualAmbientStudant() {
 
   async function getFetch() {
     const response = await getStudentVirtualAmbient(userIdStorage);
-      if (!response || !Array.isArray(response.data)) {
+    
+    if (!response || !Array.isArray(response.data)) {
       console.error("Dados inválidos:", response);
       return;
     }
@@ -48,7 +49,6 @@ useEffect(() => {
   async function submitAmbients(e){
     e.preventDefault();
     await postStudentVirtualAmbient(ambientKey, userIdStorage);
-    getFetch()
     setAmbientKey("");
   }
 
