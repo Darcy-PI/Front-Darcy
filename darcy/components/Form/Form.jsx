@@ -35,7 +35,7 @@ export default function Form() {
                 const typeEndPoint = type === "student" ? "students" : "professors";
                 response = await postLoginType(userName, password, type);
 
-                if (response) {
+                if (response.id) {
                     setUserId(response.id);
                     setUserType(typeEndPoint);
                     router.push(`/home`);
