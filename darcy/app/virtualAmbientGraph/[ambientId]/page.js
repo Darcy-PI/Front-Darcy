@@ -8,7 +8,7 @@ import getAllStudentsOnVirtualClassroom from "@/service/studentData/getAllStuden
 import { useParams } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
-import { BarChart, AreaChart } from "recharts";
+import { BarChart,  } from "recharts";
 import { CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar } from "recharts";
 
 import styles from './page.module.css';
@@ -30,7 +30,7 @@ export default function VirtualGraphicAmbient(){
             totalTempoDedicadoEstudo: 0
         };
 
-        studentDataList.forEach((studentData) => {
+        studentDataList.map((studentData) => {
             countData.totalGrauCompreensao += studentData.grauCompreensao || 0;
             countData.totalGrauInteresse += studentData.grauInteresse || 0;
             countData.totalGrauAutoconfianca += studentData.grauAutoconfianca || 0;
