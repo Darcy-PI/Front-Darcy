@@ -1,6 +1,6 @@
 export default async function getAllStudentsOnVirtualClassroom(ambientId){
     try{
-        const baseUrl = 'http://localhost:8080'
+        const baseUrl = 'https://api-darcy-production.up.railway.app/'
         const response = await fetch(`${baseUrl}/api/v1/studentData/virtualClassroom/${ambientId}`);
 
         if (!response.ok) throw new Error('Erro, ambiente não encontrado!!');

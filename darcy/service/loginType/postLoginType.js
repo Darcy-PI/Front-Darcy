@@ -1,8 +1,7 @@
-import { useStorage } from "@/zustand/storage";
-
 export default async function postLoginType(userName,password,type) {
   try {
-    const baseUrl = 'http://localhost:8080'
+    console.log(`Name: ${userName}, Password: ${password}, type: ${type}`)
+    const baseUrl = 'https://api-darcy-production.up.railway.app'
     const response = await fetch(`${baseUrl}/api/v1/auth/${type}`, {
       method: 'POST',
       headers: {

@@ -1,8 +1,6 @@
 export default async function postStudentData(studentId, ambientId, data) {
-    console.log(studentId + "," + ambientId)
-
     try{
-        const response = await fetch("http://localhost:8080/api/v1/studentData",{
+        const response = await fetch("https://api-darcy-production.up.railway.app/api/v1/studentData",{
             method : 'POST',
             headers : {
                 'Content-Type': 'application/json'
