@@ -1,6 +1,6 @@
 export default async function postRegisterType(userName, password, completeName, type) {
   try {
-    const response = await fetch(`http://localhost:8080/api/v1/${type}`, {
+    const response = await fetch(`https://api-darcy-production.up.railway.app/api/v1/${type}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

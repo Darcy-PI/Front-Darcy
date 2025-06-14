@@ -4,7 +4,7 @@ export default async function postStudentVirtualAmbient(classRoomId, studentId_)
     });
 
     try {
-        const response = await fetch(`http://localhost:8080/api/v1/virtualClassrooms/students/${studentId_}?${params.toString()}`,{
+        const response = await fetch(`https://api-darcy-production.up.railway.app/api/v1/virtualClassrooms/students/${studentId_}?${params.toString()}`,{
             method : 'POST',
             headers : {
                 'Content-Type': 'application/json'

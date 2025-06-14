@@ -1,6 +1,6 @@
 export default async function getVirtualAmbientById(idAmbient) {
     try {
-        const response = await fetch(`http://localhost:8080/api/v1/virtualClassrooms/${idAmbient}`,{
+        const response = await fetch(`https://api-darcy-production.up.railway.app/api/v1/virtualClassrooms/${idAmbient}`,{
             headers: {
             'Content-Type' : 'application/json'
             }
