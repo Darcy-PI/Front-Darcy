@@ -17,7 +17,6 @@ export default function EditProfile() {
   const [profileData, setProfileData] = useState({
     userName: "",
     completeName: "",
-    id: null,
   });
 
   async function fetchProfile() {
@@ -46,7 +45,7 @@ export default function EditProfile() {
   async function updateUserData(e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault();
     await updateProfile(
-      profileData.id,
+      userId,
       userType,
       profileData.userName,
       profileData.completeName
