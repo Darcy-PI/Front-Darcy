@@ -1,4 +1,6 @@
-export default async function postLoginType(userName: string,password: string,type: string) {
+import { ParamValue } from "next/dist/server/request/params";
+
+export default async function postLoginType(userName: string,password: string,type: ParamValue) {
   try {
     console.log(`Name: ${userName}, Password: ${password}, type: ${type}`)
     const baseUrl = process.env.NEXT_PUBLIC_API_URL;

@@ -1,4 +1,6 @@
-export default async function postRegisterType(userName: string, password: string, completeName: string, type: string) {
+import { ParamValue } from "next/dist/server/request/params";
+
+export default async function postRegisterType(userName: string, password: string, completeName: string, type: ParamValue) {
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/${type}`, {
       method: 'POST',
