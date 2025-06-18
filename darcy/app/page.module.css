@@ -1,225 +1,227 @@
-.header{
-  border-bottom: var(--bg-primaryColor) 1px solid;
+.header {
+    border-bottom: var(--bg-primaryColor) 1px solid;
 
-  padding:8px 24px ;
+    padding: 8px 24px;
 
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-
-  .logo{
     display: flex;
     flex-direction: row;
-    align-items: center;
-    gap: 8px;
+    justify-content: space-between;
 
-    h1{
-      font-family: var(--font-primaryType);
-      font-weight: 400;
-    }
-  }
+    .logo {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
 
-  .hambguerMenu{
-    display: none;
-  }
-
-  nav{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 24px;
-
-    .links{
-      background-color: var(--background);
-      color: var(--font-TertiaryColor);
-
-      text-decoration: none;
-      text-align: center;
-
-      border: var(--bg-primaryColor) 1px solid;
-      border-radius: 24px;
-
-      width: 120px;
-      
-      padding: 6px 24px;
+        h1 {
+            font-family: var(--font-primaryType);
+            font-weight: 400;
+        }
     }
 
-    .links:hover{
-      color: var(--font-secondaryColor);
-      transition: all .3s; 
+    .hambguerMenu {
+        display: none;
+    }
 
-      background-color: var(--bg-secondaryColor);
-    
-      transition: all .3s;
-    } 
-  }
+    nav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 24px;
+
+        .links {
+            background-color: var(--background);
+            color: var(--font-TertiaryColor);
+
+            text-decoration: none;
+            text-align: center;
+
+            border: var(--bg-primaryColor) 1px solid;
+            border-radius: 24px;
+
+            width: 120px;
+
+            padding: 6px 24px;
+        }
+
+        .links:hover {
+            color: var(--font-secondaryColor);
+            transition: all .3s;
+
+            background-color: var(--bg-secondaryColor);
+
+            transition: all .3s;
+        }
+    }
 }
 
-.main{
-  padding: 24px;
-  
-  h1{
-    color: var(--font-TertiaryColor);
-    font-weight: 500;
-    margin-bottom: 16px;
-  }
+.main {
+    padding: 24px;
 
-  .sectionMain{
-    margin-bottom: 24px;
-  }
-
-  .logoDarcy{
-    margin-bottom: 64px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    h1{
-      font-weight: 400;
-      font-size: 48px;
+    h1 {
+        color: var(--font-TertiaryColor);
+        font-weight: 500;
+        margin-bottom: 16px;
     }
 
-    h2{
-      font-weight: 400;
-      font-size: 24px;
+    .sectionMain {
+        margin-bottom: 24px;
     }
-  }
 
-  .whatChooseDarcyDiv{
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-
-    .whatChooseDarcySection{
-      background-color: var(--bg-primaryColor);
-
-      padding: 24px;
-
-      border-radius: 16px;
-
-      height: 180px;
-
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      .icons{
-        width: 400px;
+    .logoDarcy {
+        margin-bottom: 64px;
 
         display: flex;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
 
-        h1{
-          color: var(--font-secondaryColor);
-          font-weight: 300;
+        h1 {
+            font-weight: 400;
+            font-size: 48px;
         }
-      }
 
-      p{
-        color: var(--font-secondaryColor);
-        font-weight: 300;
-      }
-    }
-  }
-}
-
-.footer{
-  background-color: var(--bg-primaryColor);
-  
-  color: var(--font-secondaryColor);
-
-  height: 50px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-@media screen and (max-width: 600px){
-  .header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    position: relative;
-
-    .hambguerMenu{
-      display: flex;
-    }
-
-    nav{
-      background-color: var(--bg-secondaryColor);
-
-      width: 100%;
-      height: auto;
-
-      padding: 8px 0;
-
-      display: none;
-
-      .links{
-        background-color: transparent;
-        color: var(--font-secondaryColor);
-
-        text-decoration: none;
-        text-align: left;
-
-        border: none;
-        border-bottom: 1px solid white;
-        border-radius: 0;
-
-        width: 100%;
-        
-        padding: 6px 6px;
-
-        &:last-child{
-          padding: 2px 6px;
-          border: none;
+        h2 {
+            font-weight: 400;
+            font-size: 24px;
         }
-      }
     }
 
-    .active{
-      display: flex;
-      flex-direction: column;
-      align-items: start;
-      gap: 10px;
-
-      position: absolute;
-      right: 0.1%;
-      top: 100%;
-    }
-  }
-
-  .main{
-    .darcyImage{
-      width: 220px;
-      height: auto;
-    }
-    .whatChooseDarcyDiv{
-      .whatChooseDarcySection{
-        height: auto;
-
+    .whatChooseDarcyDiv {
         display: flex;
         flex-direction: column;
+        gap: 16px;
 
-        .icons{
-          img{
-            width: 35px;
-            height: auto;
-          }
+        .whatChooseDarcySection {
+            background-color: var(--bg-primaryColor);
 
-          h1{
-            text-align: center;
-            font-size: 16px;
-          }
+            padding: 24px;
+
+            border-radius: 16px;
+
+            height: 180px;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            .icons {
+                width: 400px;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                h1 {
+                    color: var(--font-secondaryColor);
+                    font-weight: 300;
+                }
+            }
+
+            p {
+                color: var(--font-secondaryColor);
+                font-weight: 300;
+            }
         }
-      }
+    }
+}
+
+.footer {
+    background-color: var(--bg-primaryColor);
+
+    color: var(--font-secondaryColor);
+
+    height: 50px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 600px) {
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        position: relative;
+
+        .hambguerMenu {
+            display: flex;
+        }
+
+        nav {
+            background-color: var(--bg-secondaryColor);
+
+            width: 100%;
+            height: auto;
+
+            padding: 8px 0;
+
+            display: none;
+
+            .links {
+                background-color: transparent;
+                color: var(--font-secondaryColor);
+
+                text-decoration: none;
+                text-align: left;
+
+                border: none;
+                border-bottom: 1px solid white;
+                border-radius: 0;
+
+                width: 100%;
+
+                padding: 6px 6px;
+
+                &:last-child {
+                    padding: 2px 6px;
+                    border: none;
+                }
+            }
+        }
+
+        .active {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            gap: 10px;
+
+            position: absolute;
+            right: 0.1%;
+            top: 100%;
+        }
     }
 
-  }
+    .main {
+        .darcyImage {
+            width: 220px;
+            height: auto;
+        }
+
+        .whatChooseDarcyDiv {
+            .whatChooseDarcySection {
+                height: auto;
+
+                display: flex;
+                flex-direction: column;
+
+                .icons {
+                    img {
+                        width: 35px;
+                        height: auto;
+                    }
+
+                    h1 {
+                        text-align: center;
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+
+    } 
 }
